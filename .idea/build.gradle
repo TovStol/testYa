@@ -1,0 +1,11 @@
+plugins{
+    id "java-library"
+}
+
+reposituories{
+    mavenCentral()
+}
+
+dependencies{
+
+}
