@@ -32,31 +32,32 @@ public class FirstJUnitTest {
     void firstTest() {
 
         $(".form-label").shouldHave(text("Name"));
-
         $("#firstName").setValue("Alex");
         $("#lastName").setValue("Ivanov");
         $("#userEmail").setValue("Alex@Ivanov.com");
-
-        $(byText("Male")).click();
-
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("9875995990");
-
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__year-select").click();
-        $(".react-datepicker__year-select").selectOptionContainingText("1983");
-        $(".react-datepicker__month-select").click();
-        $(".react-datepicker__month-select").selectOptionContainingText("July");
-        $(".react-datepicker__month-select").click();
+        $(".react-datepicker__year-select").selectOption("1983");
+        $(".react-datepicker__month-select").selectOption("July");
         $(".react-datepicker__day--001").click();
-
-        $(byText("Sports")).click();
-        $(byText("Music")).click();
-        $(byText("Reading")).click();
-
-
         $("#subjectsInput").setValue("Maths").pressEnter();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
+        $("#hobbiesWrapper").$(byText("Reading")).click();
+        $("#hobbiesWrapper").$(byText("Music")).click();
+        $("#currentAddress").setValue("Moscow");
 
-        $(byText("Rading")).click();
+        $("#uploadPicture").uploadFromClasspath("c:\\test\\1.png");
+
+
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Noida")).click();
+
+
+
+
 
 
     }
