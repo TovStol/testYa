@@ -47,7 +47,7 @@ public class FirstJUnitTest {
         $("#hobbiesWrapper").$(byText("Music")).click();
         $("#currentAddress").setValue("Moscow");
 
-        $("#uploadPicture").uploadFromClasspath("c:\\test\\1.png");
+        $("#uploadPicture").uploadFromClasspath("/Users/test/Downloads/git/test/1.png");
 
 
         $("#state").click();
