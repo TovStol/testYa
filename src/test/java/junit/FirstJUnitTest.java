@@ -5,8 +5,6 @@ import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 
 
 import static com.codeborne.selenide.Condition.text;
@@ -47,7 +45,7 @@ public class FirstJUnitTest {
         $("#hobbiesWrapper").$(byText("Music")).click();
         $("#currentAddress").setValue("Moscow");
 
-        $("#uploadPicture").uploadFromClasspath("/Users/test/Downloads/git/test/1.png");
+        $("#uploadPicture").uploadFromClasspath("test/1.png");
 
 
         $("#state").click();
