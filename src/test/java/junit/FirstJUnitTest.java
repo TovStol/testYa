@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -16,7 +18,8 @@ import static org.openqa.selenium.remote.tracing.EventAttribute.setValue;
 public class FirstJUnitTest {
     @BeforeAll
     static void openBrowse() {
-        Configuration.browserSize = "1920x1080";
+       // Configuration.browserSize = "1366x768";
+        //Configuration.browserCapabilities.setCapability("Zoom", "50" );
         Selenide.open("https://demoqa.com/automation-practice-form");
 
     }
@@ -45,14 +48,16 @@ public class FirstJUnitTest {
         $("#hobbiesWrapper").$(byText("Music")).click();
         $("#currentAddress").setValue("Moscow");
 
+        //$("#uploadPicture").uploadFile(new File("./test/1.png"));
         $("#uploadPicture").uploadFromClasspath("test/1.png");
 
-
+        $("#submit").scrollTo();
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();
         $("#city").click();
-        $("#stateCity-wrapper").$(byText("Noida")).click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
 
+        $("#submit").scrollTo().click();
 
 
 
