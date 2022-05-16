@@ -43,8 +43,7 @@ public class FirstJUnitTest {
 
 
 
-        sleep(5000);
-        sleep(5000);
+
 
 
 /*
