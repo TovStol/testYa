@@ -19,8 +19,6 @@ import static org.openqa.selenium.remote.tracing.EventAttribute.setValue;
 public class FirstJUnitTest {
     @BeforeAll
     static void openBrowse() {
-       // Configuration.browserSize = "1366x768";
-        //Configuration.browserCapabilities.setCapability("Zoom", "50" );
         Selenide.open("https://yandex.ru");
 
     }
