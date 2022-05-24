@@ -57,11 +57,10 @@ public class Yandex {
         $$(".MultipleAddressesDesktop-Field.ComposeYabblesField")
                 .first()
                 .lastChild()
-                .sendKeys("alex_a_s@inbox.ru");
+                .sendKeys("n.surnametest@yandex.ru");
 //Заполнение поля темы
         $("[name='subject']").setValue("Тестовое письмо");
 
-    /*
 //Написание письма
         $("#cke_1_contents")
                 .lastChild()
@@ -106,20 +105,33 @@ public class Yandex {
         $("[style='text-decoration:line-through;']").shouldHave(text("На волю птичку выпускаю"));
         $("em").shouldHave(text("При светлом празднике весны."));
         $$("ul").shouldHave(CollectionCondition.itemWithText("Я стал доступен утешенью;"));
-        $$("ol").shouldHave(CollectionCondition.itemWithText("За что на бога мне роптать,")); */
+        $$("ol").shouldHave(CollectionCondition.itemWithText("За что на бога мне роптать,"));
 
 //Шаг 3: Вставить валидные картинки выбором с компьютера и ссылкой.
+/*
         //Вставка файла с компьютера
-        $("input[type=file]").sendKeys("C:\\временная\\обучение\\java\\тест.jpg");
+       // ДЛЯ ВИНДЫ $("input[type=file]").sendKeys("C:\\временная\\обучение\\java\\тест.jpg");
         // Вставка файла с яндекс диска
         $(".svgicon-mail--Compose-Attachments-Disk ")
                 .parent()
                 .parent()
                 .click();
         $(".DiskResourcesListingItem-Name").doubleClick();
+*/
 
+// Вставка картинки ссылкой
+        $("[data-cke-csp-href-useless-javascript=\"void('Добавить изображение')\"]").click();
+        $$(".CKInlineImageMenu-Text").last().click();
+        $(".CKEnterUrlForm-Input")
+                .$("input.textinput__control")
+                .setValue("https://img1.freepng.ru/20180328/dtw/kisspng-blog-ansichtkaart-clip-art-joyeux-anniversaire-5abb5f8c8dc578.2983252515222291325807.jpg")
+                .pressEnter();
+//Вставка картинки с компа
 
+          //  $("[data-cke-csp-href-useless-javascript=\"void('Добавить изображение')\"]").click();
+          //  $$(".CKInlineImageMenu-Text").first().sendKeys("C:\\временная\\обучение\\java\\тест.jpg");
 
+// Ожидание: Картинки корректно вставились.
 
 
 
