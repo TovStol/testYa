@@ -5,6 +5,7 @@ import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.SendKeysAction;
 
@@ -59,6 +60,8 @@ public class Yandex {
                 .sendKeys("alex_a_s@inbox.ru");
 //Заполнение поля темы
         $("[name='subject']").setValue("Тестовое письмо");
+
+    /*
 //Написание письма
         $("#cke_1_contents")
                 .lastChild()
@@ -103,9 +106,17 @@ public class Yandex {
         $("[style='text-decoration:line-through;']").shouldHave(text("На волю птичку выпускаю"));
         $("em").shouldHave(text("При светлом празднике весны."));
         $$("ul").shouldHave(CollectionCondition.itemWithText("Я стал доступен утешенью;"));
-        $$("ol").shouldHave(CollectionCondition.itemWithText("За что на бога мне роптать,"));
+        $$("ol").shouldHave(CollectionCondition.itemWithText("За что на бога мне роптать,")); */
 
 //Шаг 3: Вставить валидные картинки выбором с компьютера и ссылкой.
+        //Вставка файла с компьютера
+        $("input[type=file]").sendKeys("C:\\временная\\обучение\\java\\тест.jpg");
+        // Вставка файла с яндекс диска
+        $(".svgicon-mail--Compose-Attachments-Disk ")
+                .parent()
+                .parent()
+                .click();
+        $(".DiskResourcesListingItem-Name").doubleClick();
 
 
 
@@ -113,13 +124,7 @@ public class Yandex {
 
 
 
-
-
-
-
-
-
-        sleep(5000);
+       sleep(5000);
 
 
 
