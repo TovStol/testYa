@@ -5,21 +5,15 @@ import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.SendKeysAction;
 
-
-import java.security.Key;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 import static org.openqa.selenium.Keys.*;
 
 
-public class Yandex {
+public class YandexTest1 {
     @BeforeAll
     static void openBrowse() {
         Selenide.open("https://yandex.ru");
@@ -134,8 +128,8 @@ public class Yandex {
           //  $$(".CKInlineImageMenu-Text").first().sendKeys("C:\\временная\\обучение\\java\\тест.jpg");
 
 // Ожидание: Картинки корректно вставились.
-
-
+        $("[data-cke-saved-src]").should(exist);
+//Шаг 4: Отправить письмо.
 
 
        sleep(5000);
