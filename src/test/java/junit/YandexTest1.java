@@ -6,16 +6,18 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.isChrome;
+import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 import static org.openqa.selenium.Keys.*;
 
 
 public class YandexTest1 {
     @BeforeAll
     static void openBrowse() {
+
         Selenide.open("https://yandex.ru");
 
     }
@@ -25,14 +27,15 @@ public class YandexTest1 {
         Selenide.closeWebDriver();
     }
 
-    @Test
-    void name() {
-    }
+
 
     @Test
     void firstTest() {
 
        $("[data-statlog='notifications.mail.logout.enter']").shouldBe(visible).click();
+       if ( $("[placeholder]").getValue() == "+7 123 456-78-90" ) {
+           $(".Button2-Text",0).parent().click();
+       }
        $("[id='passp-field-login']").setValue("n.surnametest");
        $("[id='passp:sign-in']").click();
        $("[id='passp-field-passwd']").setValue("!N.surnametest!").pressEnter();
@@ -102,16 +105,6 @@ public class YandexTest1 {
         $$("ol").shouldHave(CollectionCondition.itemWithText("За что на бога мне роптать,"));
 
 //Шаг 3: Вставить валидные картинки выбором с компьютера и ссылкой.
-/*
-        //Вставка файла с компьютера
-       // ДЛЯ ВИНДЫ $("input[type=file]").sendKeys("C:\\временная\\обучение\\java\\тест.jpg");
-        // Вставка файла с яндекс диска
-        $(".svgicon-mail--Compose-Attachments-Disk ")
-                .parent()
-                .parent()
-                .click();
-        $(".DiskResourcesListingItem-Name").doubleClick();
-*/
 
 // Вставка картинки ссылкой
         $(byText("Я мог свободу даровать!")).click();
@@ -128,11 +121,11 @@ public class YandexTest1 {
           //  $$(".CKInlineImageMenu-Text").first().sendKeys("C:\\временная\\обучение\\java\\тест.jpg");
 
 // Ожидание: Картинки корректно вставились.
-        $("[data-cke-saved-src]").should(exist);
+      // $(("img1.freepng.ru")).should(exist);
 //Шаг 4: Отправить письмо.
 
 
-       sleep(5000);
+     //  sleep(5000);
 
 
 
