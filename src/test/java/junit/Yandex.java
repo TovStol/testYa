@@ -120,12 +120,14 @@ public class Yandex {
 */
 
 // Вставка картинки ссылкой
+        $(byText("Я мог свободу даровать!")).click();
+        $(byText("Я мог свободу даровать!")).pressEnter();
         $("[data-cke-csp-href-useless-javascript=\"void('Добавить изображение')\"]").click();
         $$(".CKInlineImageMenu-Text").last().click();
         $(".CKEnterUrlForm-Input")
-                .$("input.textinput__control")
-                .setValue("https://img1.freepng.ru/20180328/dtw/kisspng-blog-ansichtkaart-clip-art-joyeux-anniversaire-5abb5f8c8dc578.2983252515222291325807.jpg")
-                .pressEnter();
+           .$("input.textinput__control")
+           .setValue("https://img1.freepng.ru/20180328/dtw/kisspng-blog-ansichtkaart-clip-art-joyeux-anniversaire-5abb5f8c8dc578.2983252515222291325807.jpg")
+           .pressEnter();
 //Вставка картинки с компа
 
           //  $("[data-cke-csp-href-useless-javascript=\"void('Добавить изображение')\"]").click();
