@@ -42,7 +42,7 @@ public class YandexTestCase1 {
         $$(".MultipleAddressesDesktop-Field.ComposeYabblesField")
                 .first()
                 .lastChild()
-                .sendKeys("n.surnametest@yandex.ru");
+                .sendKeys("n.surnametest2@yandex.ru");
         $("[name='subject']").setValue("Тестовое письмо");
         $("#cke_1_contents")
                 .lastChild()
@@ -97,8 +97,9 @@ public class YandexTestCase1 {
 
         $("#cke_1_contents img").should(exist);
 //Вставка картинки с компа
-        //  $("[data-cke-csp-href-useless-javascript=\"void('Добавить изображение')\"]").click();
-        //  $$(".CKInlineImageMenu-Text").first().sendKeys("C:\\временная\\обучение\\java\\тест.jpg");
+        $("[data-cke-csp-href-useless-javascript=\"void('Добавить изображение')\"]").click();
+        $(".CKInlineImageMenu-Item").click();
+        $(".CKInlineImageMenu-Item").sendKeys(ARROW_LEFT);
 
         $("button.Button2.Button2_pin_circle-circle.Button2_view_default").click();
         Selenide.closeWebDriver();
@@ -109,7 +110,7 @@ public class YandexTestCase1 {
         if ($("input[type=tel]").exists()) {
             $(".Button2-Text", 0).parent().click();
         }
-        $("[id='passp-field-login']").setValue("n.surnametest");
+        $("[id='passp-field-login']").setValue("n.surnametest2");
         $("[id='passp:sign-in']").click();
         $("[id='passp-field-passwd']").setValue("!N.surnametest!").pressEnter();
         $(".desk-notif-card__mail-title").shouldBe(visible).click();
@@ -118,14 +119,15 @@ public class YandexTestCase1 {
         $("[title='n.surnametest@yandex.ru']").click();
         $("strong").shouldHave(text("В чужбине свято наблюдаю"));
         $("u").shouldHave(text("Родной обычай старины:"));
-        $("[style='text-decoration:line-through;']").shouldHave(text("На волю птичку выпускаю"));
+
+        $("span[style=\"text-decoration:line-through\"]").shouldHave(text("На волю птичку выпускаю"));
         $("em").shouldHave(text("При светлом празднике весны."));
         $$("ul").shouldHave(CollectionCondition.itemWithText("Я стал доступен утешенью;"));
         $$("ol").shouldHave(CollectionCondition.itemWithText("За что на бога мне роптать,"));
 
-        $("#cke_1_contents img").should(exist);
+        $(".react-message-wrapper__body img").should(exist);
 
-        sleep(5000);
+
     }
 
 }
