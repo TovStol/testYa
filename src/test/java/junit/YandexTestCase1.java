@@ -2,7 +2,9 @@ package junit;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -16,7 +18,7 @@ public class YandexTestCase1 {
 
         Selenide.open("https://yandex.ru");
         $("[data-statlog='notifications.mail.logout.enter']").shouldBe(visible).click();
-        $(".Button2-Text", 0).parent().click();
+
         if ($("input[type=tel]").exists()) {
             $(".Button2-Text", 0).parent().click();
         }
@@ -96,17 +98,13 @@ public class YandexTestCase1 {
         $("#cke_1_contents img").pressEnter();
 
         $("#cke_1_contents img").should(exist);
-//Вставка картинки с компа
-        $("[data-cke-csp-href-useless-javascript=\"void('Добавить изображение')\"]").click();
-        $(".CKInlineImageMenu-Item").click();
-        $(".CKInlineImageMenu-Item").sendKeys(ARROW_LEFT);
 
         $("button.Button2.Button2_pin_circle-circle.Button2_view_default").click();
         Selenide.closeWebDriver();
 
         Selenide.open("https://yandex.ru");
         $("[data-statlog='notifications.mail.logout.enter']").shouldBe(visible).click();
-        $(".Button2-Text", 0).parent().click();
+
         if ($("input[type=tel]").exists()) {
             $(".Button2-Text", 0).parent().click();
         }
