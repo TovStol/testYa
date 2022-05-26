@@ -1,17 +1,12 @@
 package junit;
 
-import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverRunner.isChrome;
-import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
-import static org.openqa.selenium.Keys.*;
 
 
 public class YandexTest1 {
@@ -28,26 +23,26 @@ public class YandexTest1 {
     }
 
 
-
     @Test
     void firstTest() {
 
-       $("[data-statlog='notifications.mail.logout.enter']").shouldBe(visible).click();
-       if ( $("[placeholder]").getValue() == "+7 123 456-78-90" ) {
-           $(".Button2-Text",0).parent().click();
-       }
-       $("[id='passp-field-login']").setValue("n.surnametest");
-       $("[id='passp:sign-in']").click();
-       $("[id='passp-field-passwd']").setValue("!N.surnametest!").pressEnter();
-       $(".desk-notif-card__mail-title").shouldBe(visible).click();
-       switchTo().window(1);
+        $("[data-statlog='notifications.mail.logout.enter']").shouldBe(visible).click();
+        $(".Button2-Text", 0).parent().click();
+        if ($("input[type=tel]").exists()) {
+            $(".Button2-Text", 0).parent().click();
+        }
+        $("[id='passp-field-login']").setValue("n.surnametest");
+        $("[id='passp:sign-in']").click();
+        $("[id='passp-field-passwd']").setValue("!N.surnametest!").pressEnter();
+        $(".desk-notif-card__mail-title").shouldBe(visible).click();
+        switchTo().window(1);
 
 //Шаг 1: Нажать на кнопку Написать.
-       $( "[href='#compose']").click();
+        $("[href='#compose']").click();
 
 //Ожидание: Открывается экран написания нового письма
         $(".ComposePopup-Content").shouldHave(text("Новое письмо"));
-
+/*
 //Шаг 2: Заполнить поля Кому, Тема, в поле для ввода текста письма вставить
 //текст из нескольких абзацев.
 // Заполнение поля адреса
@@ -109,27 +104,29 @@ public class YandexTest1 {
 // Вставка картинки ссылкой
         $(byText("Я мог свободу даровать!")).click();
         $(byText("Я мог свободу даровать!")).pressEnter();
+
+ */
         $("[data-cke-csp-href-useless-javascript=\"void('Добавить изображение')\"]").click();
         $$(".CKInlineImageMenu-Text").last().click();
         $(".CKEnterUrlForm-Input")
-           .$("input.textinput__control")
-           .setValue("https://img1.freepng.ru/20180328/dtw/kisspng-blog-ansichtkaart-clip-art-joyeux-anniversaire-5abb5f8c8dc578.2983252515222291325807.jpg")
-           .pressEnter();
+                .$("input.textinput__control")
+                .setValue("https://img1.freepng.ru/20180328/dtw/kisspng-blog-ansichtkaart-clip-art-joyeux-anniversaire-5abb5f8c8dc578.2983252515222291325807.jpg")
+                .pressEnter();
 //Вставка картинки с компа
 
-          //  $("[data-cke-csp-href-useless-javascript=\"void('Добавить изображение')\"]").click();
-          //  $$(".CKInlineImageMenu-Text").first().sendKeys("C:\\временная\\обучение\\java\\тест.jpg");
+        //  $("[data-cke-csp-href-useless-javascript=\"void('Добавить изображение')\"]").click();
+        //  $$(".CKInlineImageMenu-Text").first().sendKeys("C:\\временная\\обучение\\java\\тест.jpg");
 
 // Ожидание: Картинки корректно вставились.
-      // $(("img1.freepng.ru")).should(exist);
+        $("[data-cke-saved-src^=\"https://\"]").exists();
 //Шаг 4: Отправить письмо.
 
 
-     //  sleep(5000);
+         sleep(5000);
 
 
 
-/*
-     */
+        /*
+         */
     }
 }
