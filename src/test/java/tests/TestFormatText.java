@@ -1,6 +1,8 @@
 package tests;
 
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 import pageOpject.LoginPage;
 import pageOpject.ReadLetterPage;
@@ -10,6 +12,7 @@ public class TestFormatText {
 
     @Test
     public void writeTest() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         LoginPage loginPage = new LoginPage();
         WriteLetterPage writeLetterPage = new WriteLetterPage();
         ReadLetterPage readLetterPage = new ReadLetterPage();
