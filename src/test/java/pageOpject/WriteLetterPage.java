@@ -22,7 +22,7 @@ public class WriteLetterPage {
             "Когда хоть одному творенью",
             "Я мог свободу даровать!"};
 
-    static void write() {
+   public void write() {
         $("[href='#compose']").click();
         $(".ComposePopup-Content").shouldHave(text("Новое письмо"));
         $$(".MultipleAddressesDesktop-Field.ComposeYabblesField").first().lastChild()

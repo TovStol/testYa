@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class ReadLetterPage {
-    static void read() {
+    public void read() {
         $("[title='n.surnametest@yandex.ru']").click();
         $("strong").shouldHave(text("В чужбине свято наблюдаю"));
         $("u").shouldHave(text("Родной обычай старины:"));

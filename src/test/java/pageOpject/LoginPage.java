@@ -13,7 +13,7 @@ public class LoginPage {
     static final private String passwordField = "[id='passp-field-passwd']";
     static final private String mailList = ".desk-notif-card__mail-title";
 
-    static void login(String login, String password) {
+    public void login(String login, String password) {
 
         $(entryMainButton).shouldBe(visible).click();
         if ($(entryMode).exists()) {
